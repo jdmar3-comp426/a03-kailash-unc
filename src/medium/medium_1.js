@@ -32,7 +32,7 @@ if(Number.isInteger(midpoint)){
     median = (array[midpoint - 1] + array[midpoint])/2;
 }
 else{
-    median = array[Math.round(midpoint)];
+    median = array[Math.round(midpoint) - 1];
 }
 return median;
 }
@@ -57,6 +57,6 @@ return median;
  }
  */
 export function getStatistics(array) {
-    
+
 }
 
