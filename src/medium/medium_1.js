@@ -26,6 +26,7 @@ return sum;
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
+    array.sort();
 let median = 0;
 let midpoint = array.length/2;
 if(Number.isInteger(midpoint)){
