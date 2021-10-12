@@ -57,6 +57,16 @@ return median;
  }
  */
 export function getStatistics(array) {
-
+    let themean = (array.reduce((val1, val2) => val1 + val2) / array.length)
+    return {
+        length: array.length,
+        sum: getSum(array),
+        mean: themean,
+        median: getMedian(array),
+        min: Math.min(...array),
+        max: Math.max(...array),
+        variance: variance(array,themean),
+        standard_deviation: Math.sqrt(variance(array,themean))
+    }
 }
 
