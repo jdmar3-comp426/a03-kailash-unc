@@ -26,16 +26,27 @@ return sum;
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-    array.sort();
-let median = 0;
-let midpoint = array.length/2;
-if(Number.isInteger(midpoint)){
-    median = (array[midpoint - 1] + array[midpoint])/2;
-}
-else{
-    median = array[Math.round(midpoint) - 1];
-}
-return median;
+//     array.sort();
+// let median = 0;
+// let midpoint = array.length/2;
+// if(Number.isInteger(midpoint)){
+//     median = (array[midpoint - 1] + array[midpoint])/2;
+// }
+// else{
+//     median = array[Math.round(midpoint) - 1];
+// }
+// return median;
+
+    array.sort(function(a,b){
+        return a-b;
+    });
+
+    var half = Math.floor(array.length / 2);
+    
+    if (array.length % 2)
+        return array[half];
+    
+    return (array[half - 1] + array[half]) / 2.0;
 }
 
 /**
