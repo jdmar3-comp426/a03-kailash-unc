@@ -105,3 +105,25 @@ export const moreStats = {
   makerHybrids: undefined,
   avgMpgByYearAndHybrid: undefined,
 };
+
+let temp = []
+let tag = 0
+for (let i = 0; i < mpg_data.length; i++) {
+    if(mpg_data[i].hybrid == true){
+        for (let i = 0; i < temp.length; i++) {
+            if(temp[i]["make"] == mpg_data[i].make){
+                temp[i]["hybrids"].push(mpg_data[i].id)
+                tag = 1
+                break
+            }
+            else{
+                tag = 0
+            }
+        }
+        if(tag == 0){
+        temp.push({"make":mpg_data[i].make, "hybrids": [mpg_data[i].id]})
+        }
+    }
+  }
+
+  moreStats.makerHybrids = temp
