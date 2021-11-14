@@ -38,7 +38,7 @@ for (let i = 0; i < mpg_data.length; i++) {
 
 allCarStats.avgMpg = {
   city: sum2 / mpg_data.length,
-  highway: sum1 / mpg_data.length,
+  highway: sum / mpg_data.length,
 };
 allCarStats.allYearStats = getStatistics(yeararr);
 allCarStats.ratioHybrids = tally/mpg_data.length;
