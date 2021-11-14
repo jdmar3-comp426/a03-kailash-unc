@@ -123,10 +123,10 @@ for(let i = 0; i < mpg_data.length; i++){
 }
 
 Object.keys(avgMpgByYearAndHybrid).forEach(key => {
-    avgMpgByYearAndHybrid[key].hybrid.city = avgMpgByYearAndHybrid[key].hybrid.city.reduce(reducer) / avgMpgByYearAndHybrid[key].hybrid.city.length;
-    avgMpgByYearAndHybrid[key].hybrid.highway = avgMpgByYearAndHybrid[key].hybrid.highway.reduce(reducer) / avgMpgByYearAndHybrid[key].hybrid.highway.length;
-    avgMpgByYearAndHybrid[key].notHybrid.city = avgMpgByYearAndHybrid[key].notHybrid.city.reduce(reducer) / avgMpgByYearAndHybrid[key].notHybrid.city.length;
-    avgMpgByYearAndHybrid[key].notHybrid.highway = avgMpgByYearAndHybrid[key].notHybrid.highway.reduce(reducer) / avgMpgByYearAndHybrid[key].notHybrid.highway.length;
+    avgMpgByYearAndHybrid[key].hybrid.city = avgMpgByYearAndHybrid[key].hybrid.city.reduce(reducer, 0) / avgMpgByYearAndHybrid[key].hybrid.city.length;
+    avgMpgByYearAndHybrid[key].hybrid.highway = avgMpgByYearAndHybrid[key].hybrid.highway.reduce(reducer, 0) / avgMpgByYearAndHybrid[key].hybrid.highway.length;
+    avgMpgByYearAndHybrid[key].notHybrid.city = avgMpgByYearAndHybrid[key].notHybrid.city.reduce(reducer, 0) / avgMpgByYearAndHybrid[key].notHybrid.city.length;
+    avgMpgByYearAndHybrid[key].notHybrid.highway = avgMpgByYearAndHybrid[key].notHybrid.highway.reduce(reducer, 0) / avgMpgByYearAndHybrid[key].notHybrid.highway.length;
   });
 
 
