@@ -20,12 +20,19 @@ see under the methods section
  * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
  */
 export const allCarStats = {
-
+    
     avgMpg: undefined,
     allYearStats: undefined,
     ratioHybrids: undefined,
-};
 
+    
+};
+let sum = 0;
+for (let i = 0; i < mpg_data.length; i++) {
+    sum += mpg_data[i].highway_mpg + mpg_data[i].city_mpg
+}
+
+allCarStats.avgMpg = {"city" : sum / (mpg_data.length * 2)}
 
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
