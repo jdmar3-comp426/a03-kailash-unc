@@ -106,7 +106,7 @@ export const moreStats = {
   avgMpgByYearAndHybrid: undefined,
 };
 const reducer = (previousValue, currentValue) => previousValue + currentValue;
-avgMpgByYearAndHybrid = {}
+let avgMpgByYearAndHybrid = {}
 for(let i = 0; i < mpg_data.length; i++){
     if(!(mpg_data[i].model_year in avgMpgByYearAndHybrid)){
         avgMpgByYearAndHybrid[mpg_data[i].model_year] = {hybrid : {city:[], highway:[]}, notHybrid: {city:[], highway:[]}}
@@ -130,7 +130,7 @@ Object.keys(avgMpgByYearAndHybrid).forEach(key => {
   });
 
 
-
+moreStats.avgMpgByYearAndHybrid = avgMpgByYearAndHybrid;
 
 
 
