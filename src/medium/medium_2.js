@@ -108,17 +108,17 @@ export const moreStats = {
 const reducer = (previousValue, currentValue) => previousValue + currentValue;
 let avgMpgByYearAndHybrid = {}
 for(let i = 0; i < mpg_data.length; i++){
-    if(!(mpg_data[i].model_year in avgMpgByYearAndHybrid)){
-        avgMpgByYearAndHybrid[mpg_data[i].model_year] = {hybrid : {city:[], highway:[]}, notHybrid: {city:[], highway:[]}}
+    if(!(mpg_data[i].year in avgMpgByYearAndHybrid)){
+        avgMpgByYearAndHybrid[mpg_data[i].year] = {hybrid : {city:[], highway:[]}, notHybrid: {city:[], highway:[]}}
     }
 
     if(mpg_data[i].hybrid == true){
-        avgMpgByYearAndHybrid[mpg_data[i].model_year].hybrid.city.push(mpg_data[i].city_mpg)
-        avgMpgByYearAndHybrid[mpg_data[i].model_year].hybrid.highway.push(mpg_data[i].highway_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].year].hybrid.city.push(mpg_data[i].city_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].year].hybrid.highway.push(mpg_data[i].highway_mpg)
     }
     else{
-        avgMpgByYearAndHybrid[mpg_data[i].model_year].notHybrid.city.push(mpg_data[i].city_mpg)
-        avgMpgByYearAndHybrid[mpg_data[i].model_year].notHybrid.highway.push(mpg_data[i].highway_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].year].notHybrid.city.push(mpg_data[i].city_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].year].notHybrid.highway.push(mpg_data[i].highway_mpg)
     }
 }
 
