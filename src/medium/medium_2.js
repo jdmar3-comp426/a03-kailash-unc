@@ -105,6 +105,34 @@ export const moreStats = {
   makerHybrids: undefined,
   avgMpgByYearAndHybrid: undefined,
 };
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+avgMpgByYearAndHybrid = {}
+for(let i = 0; i < mpg_data.length; i++){
+    if(!(mpg_data[i].model_year in avgMpgByYearAndHybrid)){
+        avgMpgByYearAndHybrid[mpg_data[i].model_year] = {hybrid : {city:[], highway:[]}, notHybrid: {city:[], highway:[]}}
+    }
+
+    if(mpg_data[i].hybrid == true){
+        avgMpgByYearAndHybrid[mpg_data[i].model_year].hybrid.city.push(mpg_data[i].city_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].model_year].hybrid.highway.push(mpg_data[i].highway_mpg)
+    }
+    else{
+        avgMpgByYearAndHybrid[mpg_data[i].model_year].notHybrid.city.push(mpg_data[i].city_mpg)
+        avgMpgByYearAndHybrid[mpg_data[i].model_year].notHybrid.highway.push(mpg_data[i].highway_mpg)
+    }
+}
+
+Object.keys(avgMpgByYearAndHybrid).forEach(key => {
+    avgMpgByYearAndHybrid[key].hybrid.city = avgMpgByYearAndHybrid[key].hybrid.city.reduce(reducer) / avgMpgByYearAndHybrid[key].hybrid.city.length;
+    avgMpgByYearAndHybrid[key].hybrid.highway = avgMpgByYearAndHybrid[key].hybrid.highway.reduce(reducer) / avgMpgByYearAndHybrid[key].hybrid.highway.length;
+    avgMpgByYearAndHybrid[key].notHybrid.city = avgMpgByYearAndHybrid[key].notHybrid.city.reduce(reducer) / avgMpgByYearAndHybrid[key].notHybrid.city.length;
+    avgMpgByYearAndHybrid[key].notHybrid.highway = avgMpgByYearAndHybrid[key].notHybrid.highway.reduce(reducer) / avgMpgByYearAndHybrid[key].notHybrid.highway.length;
+  });
+
+
+
+
+
 
 let temp = []
 let tag = 0
