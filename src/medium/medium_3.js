@@ -31,6 +31,8 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
         return 0;
       }
       result.sort(compare);
+
+      return result;
 }
 
 
