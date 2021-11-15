@@ -192,7 +192,7 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     let counter = 0;
-    for(let i = 0; i < arr; i++){
+    for(let i = 0; i < arr.length; i++){
         if(test(arr[i])){
             counter++;
         }
