@@ -121,9 +121,9 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-    let cond = false;
+    let cond = true;
     for(let i = 0; i < arr.length; i++){
-        cond = cond || test(arr[i])
+        cond = cond && test(arr[i])
     }
     return cond;
 };
