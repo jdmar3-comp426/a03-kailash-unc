@@ -194,8 +194,8 @@ export const hasExactly = (arr, test, n) => {
     let counter = 0;
     for(let i = 0; i < arr; i++){
         if(test(arr[i])){
-            couner++;
+            counter++;
         }
     }
-    return (counter == n)
+    return (counter === n)
 };
