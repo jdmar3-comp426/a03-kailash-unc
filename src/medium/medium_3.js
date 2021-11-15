@@ -99,7 +99,7 @@ export function searchName(car_data, searchTerm) {
  */
 export function searchByYear(car_data, years) {
     let result = [];
-    year.sort(function(a, b){
+    years.sort(function(a, b){
         if (a < b) return 1;
         if (b < a) return -1;
         return 0;  
