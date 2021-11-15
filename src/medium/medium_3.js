@@ -98,5 +98,18 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    let result = [];
+    year.sort(function(a, b){
+        if (a < b) return 1;
+        if (b < a) return -1;
+        return 0;  
+      });
+    for(let i = 0; i < years.length; i++){
+        for(let j = 0; j < car_data.length; j++){
+            if(car_data[j].year == years[i]){
+                result.push(car_data[j]);
+            }
+        }
+    }
+    return result;
 }
