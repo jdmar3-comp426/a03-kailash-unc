@@ -18,7 +18,21 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
+    let result = []
+    for(let i = 0; i < car_data.length; i++){
+        if(car_data[i].horsepower >= minHorsepower && car_data[i].torque >= minTorque){
+            result.push(car_data[i]);
+        }
+    }
+    function compare(a, b) {
+        if (a.horsepower < b.horsepower) return 1;
+        if (b.horsepower < a.horsepower) return -1;
+      
+        return 0;
+      }
+      result.sort(compare);
 
+      return result;
 }
 
 
@@ -33,7 +47,21 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
+    let result = []
+    for(let i = 0; i < car_data.length; i++){
+        if(car_data[i].city_mpg >= minCity && car_data[i].highway_mpg >= minHighway){
+            result.push(car_data[i]);
+        }
+    }
+    function compare(a, b) {
+        if (a.highway_mpg < b.highway_mpg) return 1;
+        if (b.highway_mpg < a.highway_mpg) return -1;
+      
+        return 0;
+      }
+      result.sort(compare);
 
+      return result;
 }
 
 
@@ -46,6 +74,17 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
+    let result = [];
+    for(let i = 0; i < car_data.length; i++){
+        if(car_data[i].id.includes(searchTerm)){
+            result.push(car_data[i]);
+        }
+    }
+    result.sort(function(a, b){  
+        return a.id.indexOf(searchTerm) - b.id.indexOf(searchTerm);
+      });
+
+      return result;
 
 }
 
@@ -59,5 +98,18 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    let result = [];
+    years.sort(function(a, b){
+        if (a < b) return 1;
+        if (b < a) return -1;
+        return 0;  
+      });
+    for(let i = 0; i < years.length; i++){
+        for(let j = 0; j < car_data.length; j++){
+            if(car_data[j].year == years[i]){
+                result.push(car_data[j]);
+            }
+        }
+    }
+    return result;
 }
